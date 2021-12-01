@@ -9,7 +9,6 @@ def countIncrements(data, windowSize = 1):
     return sum(map(lt, data, islice(data, 1, None)))
 
 def main():
-
     sampleData = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263]
     print(countIncrements(sampleData))
     print(countIncrements(summedWindows(sampleData, 3)))
