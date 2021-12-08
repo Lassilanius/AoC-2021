@@ -6,7 +6,7 @@ paths = [Path(__file__).with_name('sample_input.txt'), Path(__file__).with_name(
 
 def solveA(data):
     m = floor(median(data))
-    return min(sum(abs(x - k) for x in data) for k in (m, m + 1))
+    return sum(abs(x - m) for x in data)
 
 def solveB(data):
     m = floor(mean(data))
