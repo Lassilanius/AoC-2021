@@ -7,8 +7,10 @@ illegalScoreTable = (3, 57, 1197, 25137)
 def solve(data):
     scoreOfIllegals = 0
     complementaries = []
+
     lp, rp = '([{<', ')]}>'
     mirror = dict(zip(rp + lp, lp + rp))
+
     for line in data:
         stack, isLegal = [''], True
         for tok in line:
