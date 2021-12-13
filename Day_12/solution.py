@@ -7,21 +7,21 @@ paths = [Path(__file__).with_name('sample_input.txt'),
 
 def countPaths(graph, useSmallTwice = False):
 
-    def genPaths(path = ['start'], usedSmallTwice = False):
+    def gen(path = ['start'], usedSmallTwice = False):
         if path[-1] == 'end':
-            yield path[:]
+            yield 1 # change to path[:] -> generate all paths
             return
         for x in graph[path[-1]]:
             if x.isupper() or x not in path:
                 path.append(x)
-                yield from genPaths(path, usedSmallTwice)
+                yield from gen(path, usedSmallTwice)
                 path.pop()
             elif not usedSmallTwice:
                 path.append(x)
-                yield from genPaths(path, True)
+                yield from gen(path, True)
                 path.pop()
 
-    return sum(1 for _ in genPaths(usedSmallTwice = not useSmallTwice))
+    return sum(gen(usedSmallTwice = not useSmallTwice))
 
 def main():
     for p in paths:
