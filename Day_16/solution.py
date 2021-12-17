@@ -66,9 +66,7 @@ def main():
         for packet, expectedVal in sampleData:
             decoder = PacketDecoder(packet)
             actualVal = decoder.interpret()
-            try:
-                assert actualVal == expectedVal
-            except AssertionError:
+            if (actualVal != expectedVal):
                 print(f'Decoding of packet {packet} failed: {actualVal} should equal {expectedVal}')
 
         decoder = PacketDecoder(data)
