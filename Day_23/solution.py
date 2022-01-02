@@ -126,8 +126,8 @@ def main():
     for p in paths:
         with p.open('r') as f:
             t0    = time.time()
-            input = f.read().split('\n')
-            rooms = [[*[*zip(*input)][i][3:1:-1]] for i in range(3, 10, 2)]
+            inp   = f.read().split('\n')
+            rooms = [[*[*zip(*inp)][i][3:1:-1]] for i in range(3, 10, 2)]
             hall  = ['.'] * 11
             amphi = Amphipods(rooms, hall, 2)
 
@@ -135,8 +135,8 @@ def main():
             print(f'Run time for part 1 in seconds: {time.time() - t0}')
 
             t0    = time.time()
-            input = input[:3] + ['  #D#C#B#A#', '  #D#B#A#C#'] + input[3:]
-            rooms = [[*[*zip(*input)][i][5:1:-1]] for i in range(3, 10, 2)]
+            inp   = inp[:3] + ['  #D#C#B#A#', '  #D#B#A#C#'] + inp[3:]
+            rooms = [[*[*zip(*inp)][i][5:1:-1]] for i in range(3, 10, 2)]
             hall  = ['.'] * 11
             amphi = Amphipods(rooms, hall, 4)
 
