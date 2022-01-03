@@ -63,12 +63,6 @@ def main():
         t0  = time.time()
         inp = f.read().split('\n')
 
-        instructions = []
-        for cmd in inp:
-            if cmd[:3] == 'inp':
-                instructions.append([])
-            instructions[-1].append(cmd)
-    
         params = []
         for i, cmd in enumerate(inp):
             if i % 18 in (4, 5, 15): # These commands changes parameters
